@@ -45,6 +45,14 @@ app.get('/maioresDoadores/:num', function (request, response) {
     response.send(getGreatestDonors(num))
 })
 
+app.get('/total', function (request, response) {
+    let total = 0
+    donors.map((donor) => {
+        total += parseInt(donor.valor)
+    })
+    response.send('' +  total)
+})
+
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!')
 })
